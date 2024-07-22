@@ -76,8 +76,10 @@ RUN apt-get install -y --no-install-recommends \
     ln -s /usr/bin/pip3 pip
 
 
-ENV http_proxy=http://192.168.3.81:7890
-ENV https_proxy=http://192.168.3.81:7890
+# my own proxy settings
+# ENV http_proxy=http://192.168.3.81:7890
+# ENV https_proxy=http://192.168.3.81:7890
+
 USER root
 WORKDIR /tmp
 
