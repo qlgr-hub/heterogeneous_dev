@@ -1,0 +1,9 @@
+build/
+.vscode/
+.cache/
+.ipynb_checkpoints/
+opensource/
+*.ncu-rep
+*.o
+*.a
+*.so

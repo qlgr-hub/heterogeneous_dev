@@ -1,0 +1,13 @@
+numpy
+sympy
+scipy
+pandas
+icu
+opencv-python
+pyopencl
+pycuda
+joblib 
+dask
+pytest
+matplotlib
+jupyterlab

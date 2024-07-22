@@ -1,0 +1,29 @@
+services:
+  hpc_dev:
+    image: hpc_dev:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: hpc_dev
+    network_mode: bridge
+    user: "1000:0"
+    restart: always
+    tty: true
+    privileged: true
+    ports:
+      - "15222:22"
+      - "15288:8888"
+    environment:
+      TZ: 'Asia/Shanghai'
+    volumes:
+      - /home/qlgr/workspace/hpc_dev:/workspace
+      - /home/qlgr/.vscode-server/:/home/qlgr/.vscode-server/
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: "all"
+              capabilities: [gpu]
