@@ -1,6 +1,6 @@
 # ref:https://github.com/NVIDIA/TensorRT/blob/release/10.0/docker/ubuntu-22.04.Dockerfile
 ARG CUDA_VERSION=12.2.2
-FROM nvidia/cuda:${CUDA_VERSION}-devel-ubuntu22.04
+FROM nvcr.io/nvidia/cuda:${CUDA_VERSION}-devel-ubuntu22.04
 # Required to build Ubuntu 20.04 without user prompts with DLFW container
 ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ=Asia/Shanghai
@@ -60,8 +60,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 
 # Add default non-root sudoer user and start ssh service
-RUN groupadd -r -g 1000 qlgr && useradd -rm -d /home/qlgr -s /bin/bash -g qlgr -G sudo -u 1000 qlgr
-RUN echo 'qlgr:123456' | chpasswd && echo "qlgr ALL=(ALL) ALL" >> /etc/sudoers
+RUN groupadd -r -g 1000 george && useradd -rm -d /home/george -s /bin/bash -g george -G sudo -u 1000 george
+RUN echo 'george:123456' | chpasswd && echo "george ALL=(ALL) ALL" >> /etc/sudoers
 RUN echo "PermitUserEnvironment yes" >> /etc/ssh/sshd_config && service ssh start
 
 
@@ -102,6 +102,6 @@ RUN apt autopurge && rm -rf /tmp/*
 
 EXPOSE 22
 EXPOSE 8888
-WORKDIR /home/qlgr
+WORKDIR /home/george
 ADD startup.sh startup.sh
 ENTRYPOINT ["bash", "startup.sh"]

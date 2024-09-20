@@ -16,8 +16,8 @@ services:
     environment:
       TZ: 'Asia/Shanghai'
     volumes:
-      - /home/qlgr/workspace/hpc_dev:/workspace
-      - /home/qlgr/.vscode-server/:/home/qlgr/.vscode-server/
+      - /home/george/workspace/hpc_dev:/workspace
+      - /home/george/.vscode-server/:/home/george/.vscode-server/
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
     deploy:
